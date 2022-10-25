@@ -1,0 +1,98 @@
+
+
+
+
+    
+<?php
+
+
+function FonctionToday($annee, $mois, $jour)
+{
+
+
+    $nbrjour = $jour;
+
+
+
+    if ($mois == 1) {
+        $nbrjour =  31;
+    }
+    if ($mois == 2) {
+
+        if ((is_int($annee / 4) && !is_int($annee / 100)) || is_int($annee / 400)) {
+            // Année bissextile
+            // vous remplacez le retour par ce que vou voulez
+            $nbrjour = 29;
+        } else {
+            // Année NON bissextile
+            // vous remplacez le retour par ce que vou voulez
+            $nbrjour = 28;
+        }
+    }
+    if ($mois == 3) {
+        $nbrjour = 31;
+    }
+    if ($mois == 4) {
+        $nbrjour = 30;
+    }
+    if ($mois == 5) {
+        $nbrjour =  31;
+    }
+    if ($mois == 6) {
+        $nbrjour = 30;
+    }
+    if ($mois == 7) {
+        $nbrjour = 31;
+    }
+    if ($mois == 8) {
+        $nbrjour =  31;
+    }
+    if ($mois == 9) {
+        $nbrjour = 30;
+    }
+    if ($mois == 10) {
+        $nbrjour = 31;
+    }
+    if ($mois == 11) {
+        $nbrjour = 30;
+    }
+    if ($mois == 12) {
+        $nbrjour = 31;
+    }
+
+
+
+    if ($nbrjour <= $jour) {
+        $jour = 01;
+        $mois =  $mois + 1;
+
+
+        if ($mois == 12) {
+            $jour = 01;
+            $mois == 1;
+            $annee = $annee + 1;
+        }
+    } else {
+        $jour = $jour  + 1;
+    }
+
+
+    if ($mois < 10) {
+        $mois = '0'  .  $mois . '';
+    }
+
+
+    if ($jour < 10) {
+        $jour = '0'  .  $jour . '';
+    }
+
+
+
+    $date = '' . $annee . '-' .  $mois .  '-' .  $jour . '';
+
+    return  $date;
+}
+
+
+
+?>
